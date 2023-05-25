@@ -1,58 +1,71 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-/* App es un componente */
-const App = () => {
-  console.log("Hola mundo desde el componente");
-  const fecha = new Date();
-  const num1 = 5;
-  const num2 = 10;
+/* Ejercicio */
+
+const App3 = () => {
+  const curso = "Especialidad 1";
+  const parte1 = "Horas unidad 1";
+  const ejercicio1 = 10;
+  const parte2 = "Horas unidad 2";
+  const ejercicio2 = 7;
+  const parte3 = "Horas unidad 3";
+  const ejercicio3 = 14;
+
   return (
     <div>
-      <h1>Mi primnera App</h1>
-      <h2>Hola Mundo</h2>
-      <br />
-      <h3>La fecha de hoy es: {fecha.toString()}</h3>
-      <h3>
-        La suma de {num1} más {num2} = {num1 + num2}{" "}
-      </h3>
+      <Header curso={curso} />
+      <Contenido
+        parte1={parte1}
+        ejercicio1={ejercicio1}
+        parte2={parte2}
+        ejercicio2={ejercicio2}
+        parte3={parte3}
+        ejercicio3={ejercicio3}
+      />
+
+    <Total ejercicio1={ejercicio1} ejercicio2={ejercicio2} ejercicio3={ejercicio3} />
+
     </div>
   );
 };
 
-/* Componente saludo */
-const Saludo = (props) => {
+const Header = (props) => {
   return (
     <div>
-      <h1>Hola {props.nombre} tienes {props.edad} años.</h1>
+      <h1>{props.curso}</h1>
     </div>
   );
 };
 
-/* Conponente footer */
-const Footer = () => {
-  return(
+const Contenido = (props) => {
+  return (
     <div>
-      <h1>Este es el footer</h1>
+      <Parte parte={props.parte1} ejercicio={props.ejercicio1}/>
+      <Parte parte={props.parte2} ejercicio={props.ejercicio2}/>
+      <Parte parte={props.parte3} ejercicio={props.ejercicio3}/>
     </div>
-  )
+  );
+};
+
+const Total = (props) => {
+  return (
+    <div>
+      <p>
+        Número de horas {props.ejercicio1 + props.ejercicio2 + props.ejercicio3}
+      </p>
+    </div>
+  );
+};
+
+const Parte = (props) => {
+  return (
+    <div>
+      <p>
+        {props.parte} {props.ejercicio}
+      </p>
+    </div>
+  );
 }
 
-/* Componemte App2 */
-const App2 = () => {
-  const nombre1 = "Cristofher"
-  const edad1 = 17  
-  const nombre2 = "Pepito"
-  const edad2 = 25
-  return (
-    <div>
-      <h1>Bienvenido a nuestra página</h1>
-      <Saludo nombre={nombre1} edad={edad1} />
-      <Saludo nombre="Pepito" edad="25" />
-      <Saludo />
-      <Footer />
-    </div>
-  );
-};
-
-ReactDOM.render(<App2 />, document.getElementById("root"));
+ReactDOM.render(<App3 />, document.getElementById("root"));
