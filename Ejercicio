@@ -1,0 +1,27 @@
+/* Ejercicio */
+
+const App3 = () => {
+  const curso = 'Especialidad 1'
+  const parte1 = 'Horas unidad 1'
+  const ejercicio1 = 10
+  const parte2 = 'Horas unidad 2'
+  const ejercicio2 = 7
+  const parte3 = 'Horas unidad 3'
+  const ejercicio3 = 14
+
+  return (
+    <div>
+      <h1>{curso}</h1>
+      <p>
+        {parte1} {ejercicio1}
+      </p>
+      <p>
+        {parte2} {ejercicio2}
+      </p>
+      <p>
+        {parte3} {ejercicio3}
+      </p>
+      <p>Número de horas {ejercicio1 + ejercicio2 + ejercicio3}</p>
+    </div>
+  )
+}
