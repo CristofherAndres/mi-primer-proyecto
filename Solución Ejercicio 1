@@ -1,0 +1,73 @@
+
+import React from "react";
+import ReactDOM from "react-dom";
+
+/* Ejercicio */
+
+const App3 = () => {
+  const curso = "Especialidad 1";
+
+  const parte1 = {
+    nombre: "Horas unidad 1",
+    ejercicio: 10,
+  };
+
+  const parte2 = {
+    nombre: "Horas unidad 2",
+    ejercicio: 7,
+  };
+
+  const parte3 = {
+    nombre: "Horas unidad 3",
+    ejercicio: 14,
+  };
+
+  return (
+    <div>
+      <Header curso={curso} />
+      <Contenido parte1={parte1} parte2={parte2} parte3={parte3} />
+
+      <Total ejercicio1={parte1} ejercicio2={parte2} ejercicio3={parte3} />
+    </div>
+  );
+};
+
+const Header = (props) => {
+  return (
+    <div>
+      <h1>{props.curso}</h1>
+    </div>
+  );
+};
+
+const Contenido = (props) => {
+  return (
+    <div>
+      <Parte parte={props.parte1.nombre} ejercicio={props.parte1.ejercicio} />
+      <Parte parte={props.parte2.nombre} ejercicio={props.parte2.ejercicio} />
+      <Parte parte={props.parte3.nombre} ejercicio={props.parte3.ejercicio} />
+    </div>
+  );
+};
+
+const Total = (props) => {
+  return (
+    <div>
+      <p>
+        Número de horas {props.ejercicio1.ejercicio + props.ejercicio2.ejercicio + props.ejercicio3.ejercicio}
+      </p>
+    </div>
+  );
+};
+
+const Parte = (props) => {
+  return (
+    <div>
+      <p>
+        {props.parte} {props.ejercicio}
+      </p>
+    </div>
+  );
+};
+
+ReactDOM.render(<App3 />, document.getElementById("root"));

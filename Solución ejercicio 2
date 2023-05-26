@@ -1,10 +1,11 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
 
 /* Ejercicio */
 
 const App3 = () => {
   const curso = "Especialidad 1";
+
   const partes = [
     {
       nombre: "Horas unidad 1",
@@ -24,7 +25,7 @@ const App3 = () => {
     <div>
       <Header curso={curso} />
       <Contenido partes={partes} />
-      <Total partes={partes}/> 
+      <Total partes={partes} />
     </div>
   );
 };
@@ -40,9 +41,9 @@ const Header = (props) => {
 const Contenido = (props) => {
   return (
     <div>
-      {props.partes.map((valor,index) =>
-        <Parte parte={valor.nombre} ejercicio={valor.ejercicio} key={index}/>
-      )}
+      {props.partes.map((valor, index) => (
+        <Parte parte={valor.nombre} ejercicio={valor.ejercicio} key={index} />
+      ))}
     </div>
   );
 };
@@ -50,8 +51,8 @@ const Contenido = (props) => {
 const Total = (props) => {
   let suma = 0;
   props.partes.forEach((valor) => {
-    suma += valor.ejercicio
-  } )
+    suma += valor.ejercicio;
+  })
   return (
     <div>
       <p>
@@ -71,4 +72,4 @@ const Parte = (props) => {
   );
 };
 
-ReactDOM.render(<App3 />, document.getElementById("root"));
+createRoot(document.getElementById("root")).render(<App3 />);
